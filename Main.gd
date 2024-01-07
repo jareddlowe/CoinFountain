@@ -14,5 +14,5 @@ func spawn_coins(amount, pos):
 		new_coin.position = pos
 		var direction = Vector2((randf_range(-1, 1)),(randf_range(-1, 1)))
 		direction = direction.normalized()
-		var power = randf_range(80.0, 170.0)
+		var power = randf_range(2, 4)
 		new_coin.velocity = direction * power

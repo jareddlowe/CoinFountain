@@ -1,11 +1,12 @@
-extends CharacterBody2D
+extends Area2D
 
 var bounced_once = false
-
+var velocity = Vector2(0, 0)
+var coin_sprite_velocity = Vector2(0, 0)
 
 func _ready():
 	# Start the first upward movement
-	$CoinSpriteBody.velocity.y -= randf_range(80, 100)
+	coin_sprite_velocity.y -= randf_range(4, 6)
 
 
 func _process(delta):
@@ -13,18 +14,18 @@ func _process(delta):
 	velocity = velocity.lerp(Vector2.ZERO, 0.03)
 
 	# Move the whole coin 
-	move_and_slide()
+	position += velocity
 	
 	# Apply gravity to the coin sprite's body
-	$CoinSpriteBody.velocity.y += 3
+	coin_sprite_velocity.y += 0.2
 
 	# Triggers when coin sprite goes below the shadow/origin point
-	if $CoinSpriteBody.global_position.y > global_position.y: 
-		$CoinSpriteBody.global_position.y = global_position.y # Prevents coin from actually going below shadow
-		$CoinSpriteBody.velocity.y = 0 # Prevents coin from actually going below shadow
+	if $CoinSprite.global_position.y > global_position.y: 
+		$CoinSprite.global_position.y = global_position.y # Prevents coin from actually going below shadow
+		coin_sprite_velocity.y = 0 # Prevents coin from actually going below shadow
 		if not bounced_once: # Triggers bounce 
-			$CoinSpriteBody.velocity.y -= randf_range(60, 80)
+			coin_sprite_velocity.y -= randf_range(3, 4)
 			bounced_once = true
 	
 	# Move the coin sprite's body
-	$CoinSpriteBody.move_and_slide()
+	$CoinSprite.position += coin_sprite_velocity
