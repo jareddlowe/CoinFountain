@@ -6,12 +6,12 @@ var coin_sprite_velocity = Vector2(0, 0)
 
 func _ready():
 	# Start the first upward movement
-	coin_sprite_velocity.y -= randf_range(4, 6)
+	coin_sprite_velocity.y -= randf_range(4, 5)
 
 
 func _process(delta):
 	# Slow the whole coin over time
-	velocity = velocity.lerp(Vector2.ZERO, 0.03)
+	velocity = velocity.lerp(Vector2.ZERO, 0.06)
 
 	# Move the whole coin 
 	position += velocity
@@ -24,7 +24,7 @@ func _process(delta):
 		$CoinSprite.global_position.y = global_position.y # Prevents coin from actually going below shadow
 		coin_sprite_velocity.y = 0 # Prevents coin from actually going below shadow
 		if not bounced_once: # Triggers bounce 
-			coin_sprite_velocity.y -= randf_range(3, 4)
+			coin_sprite_velocity.y -= randf_range(2, 3)
 			bounced_once = true
 	
 	# Move the coin sprite's body
