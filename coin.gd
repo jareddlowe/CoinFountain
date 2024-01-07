@@ -11,7 +11,7 @@ func _ready():
 
 func _process(delta):
 	# Slow the whole coin over time
-	velocity = velocity.lerp(Vector2.ZERO, 0.06)
+	velocity = velocity.lerp(Vector2.ZERO, 0.03)
 
 	# Move the whole coin 
 	position += velocity
