@@ -11,13 +11,16 @@ func _ready():
 
 func _process(delta):
 	# Slow the whole coin over time
-	velocity = velocity.lerp(Vector2.ZERO, 0.03)
+	velocity = velocity.lerp(Vector2.ZERO, 0.06)
 
 	# Move the whole coin 
 	position += velocity
 	
 	# Apply gravity to the coin sprite's body
 	coin_sprite_velocity.y += 0.2
+
+	# Move the coin sprite's body
+	$CoinSprite.position += coin_sprite_velocity
 
 	# Triggers when coin sprite goes below the shadow/origin point
 	if $CoinSprite.global_position.y > global_position.y: 
@@ -27,5 +30,3 @@ func _process(delta):
 			coin_sprite_velocity.y -= randf_range(2, 3)
 			bounced_once = true
 	
-	# Move the coin sprite's body
-	$CoinSprite.position += coin_sprite_velocity
