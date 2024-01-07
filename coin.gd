@@ -29,4 +29,3 @@ func _process(delta):
 		if not bounced_once: # Triggers bounce 
 			coin_sprite_velocity.y -= randf_range(2, 3)
 			bounced_once = true
-	
