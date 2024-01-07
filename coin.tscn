@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cthhevj2ac8nx"]
 
 [ext_resource type="Script" path="res://coin.gd" id="1_xly18"]
-[ext_resource type="Texture2D" uid="uid://bgjrbtmoqio2t" path="res://coin.png" id="2_6gktx"]
+[ext_resource type="Texture2D" uid="uid://bqw3t3o8kbaw8" path="res://coin.png" id="2_6gktx"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g2nwb"]
 load_path = "res://.godot/imported/coin.png-7e710de472b75b3653c3283ef5153eb4.ctex"

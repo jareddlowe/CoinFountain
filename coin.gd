@@ -21,6 +21,7 @@ func _process(delta):
 	# Triggers when coin sprite goes below the shadow/origin point
 	if $CoinSpriteBody.global_position.y > global_position.y: 
 		$CoinSpriteBody.global_position.y = global_position.y # Prevents coin from actually going below shadow
+		$CoinSpriteBody.velocity.y = 0
 		if not bounced_once: # Triggers bounce 
 			$CoinSpriteBody.velocity.y -= randf_range(60, 80)
 			bounced_once = true
