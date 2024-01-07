@@ -11,6 +11,7 @@ func _ready():
 func _process(delta):
 	# Slow the whole coin over time
 	velocity = velocity.lerp(Vector2.ZERO, 0.03)
+
 	# Move the whole coin 
 	move_and_slide()
 	
@@ -23,5 +24,6 @@ func _process(delta):
 		if not bounced_once: # Triggers bounce 
 			$CoinSpriteBody.velocity.y -= randf_range(60, 80)
 			bounced_once = true
+	
 	# Move the coin sprite's body
 	$CoinSpriteBody.move_and_slide()
