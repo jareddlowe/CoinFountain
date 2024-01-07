@@ -11,7 +11,7 @@ func _ready():
 
 func _process(delta):
 	# Slow the whole coin over time
-	velocity = velocity.lerp(Vector2.ZERO, 0.06)
+	velocity = velocity.lerp(Vector2.ZERO, 0.04)
 
 	# Move the whole coin 
 	position += velocity
@@ -27,5 +27,5 @@ func _process(delta):
 		$CoinSprite.global_position.y = global_position.y # Prevents coin from actually going below shadow
 		coin_sprite_velocity.y = 0 # Prevents coin from actually going below shadow
 		if not bounced_once: # Triggers bounce 
-			coin_sprite_velocity.y -= randf_range(2, 3)
+			coin_sprite_velocity.y -= randf_range(2.5, 3.5)
 			bounced_once = true
