@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cthhevj2ac8nx"]
+
+[ext_resource type="Script" path="res://coin.gd" id="1_xly18"]
+[ext_resource type="Texture2D" uid="uid://bgjrbtmoqio2t" path="res://coin.png" id="2_6gktx"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g2nwb"]
+load_path = "res://.godot/imported/coin.png-7e710de472b75b3653c3283ef5153eb4.ctex"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dmd40"]
+radius = 9.05539
+
+[node name="Coin" type="CharacterBody2D"]
+collision_mask = 0
+script = ExtResource("1_xly18")
+
+[node name="ShadowSprite" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.321569)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("CompressedTexture2D_g2nwb")
+
+[node name="CoinSpriteBody" type="CharacterBody2D" parent="."]
+
+[node name="CoinSprite" type="Sprite2D" parent="CoinSpriteBody"]
+z_index = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_6gktx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dmd40")
